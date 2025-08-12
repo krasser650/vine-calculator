@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FermCalc</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="content">
+    <form class="form" id="form_id">
+        <div class="title">
+            <h5>КАЛЬКУЛЯТОР ДЕЛЛЕ</h5>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Розрахунок коєфіціента Делле</h5>
+            <div class="card-body">
+                <p class="desc">Визначте мінімальну концентрацію цукру та спирту,
+                    необхідну для консервації вина та запобігання розвитку небажаної мікрофлори.
+                    Коефіцієнт Делле повинен бути <strong>80 або більше</strong> </p>
+                <div class="mb-3">
+                    <label for="sugar_id" class="form-label">Цукор, %</label>
+                    <input type="number" class="form-control" id="sugar_id" value="0" min="0" max="25" step="0.5"
+                           placeholder="Вкажіть бажаний відсоток цукру" onchange="calcDellCof()">
+                </div>
+                <div class="mb-3">
+                    <label for="alcohol_id" class="form-label">Спирт, %</label>
+                    <input type="number" class="form-control" id="alcohol_id" value="0" min="0" max="25" step="0.5"
+                           placeholder="Вкажіть бажаний відсоток спирту" onchange="calcDellCof()">
+                </div>
+                <div>
+                    <h5 id="result_id">Коєфіціент : не розраховано</h5>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Розрахунок спиртової компоненти</h5>
+            <div class="card-body">
+                <p class="desc">Додайте показники цукристості виноматеріалу, його кількість та міцність алкоголю,
+                    яким плануєте стабілізувати вино</p>
+                <div class="mb-3">
+                    <label for="sugar-vine_id" class="form-label">Цукор у виноматеріалі, гр/100см3</label>
+                    <input type="number" class="form-control" id="sugar-vine_id" value="0" min="15" max="35" step="0.5"
+                           placeholder="Фактичне значення цукру у виноматеріалі">
+                </div>
+                <div class="mb-3">
+                    <label for="amount-wine_id" class="form-label">Кількість виноматеріалу, л</label>
+                    <input type="number" class="form-control" id="amount-wine_id" value="0" min="1" max="500" step="5"
+                           placeholder="Фактична кількість виноматеріалу">
+                </div>
+                <div class="mb-3">
+                    <label for="alcohol-blend_id" class="form-label">Міцність спирту, % об.</label>
+                    <input type="number" class="form-control" id="alcohol-blend_id"value="0"  min="40" max="100" step="0.5"
+                           placeholder="Фактична міцність спирту">
+                </div>
+                <div>
+                    <h5 id="total_id">Необхідно додати : не розраховано</h5>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="btn btn-secondary me-md-2" type="button" onclick="resetAll()">Clear</button>
+            <button class="btn btn-primary" type="button" onclick="calcAlcohol()">Розрахувати</button>
+        </div>
+    </form>
+</div>
+
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+</html>

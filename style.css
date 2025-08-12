@@ -1,0 +1,25 @@
+.content {
+    padding: 20px;
+}
+
+.desc {
+    color: grey;
+    font-size: 0.8rem;
+}
+
+.card {
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.title {
+    text-align: center;
+}
+
+.del-kof-yes {
+    color: darkgreen;
+}
+
+.del-kof-no {
+    color: #c91515;
+}
