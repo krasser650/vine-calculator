@@ -3,7 +3,7 @@
 }
 
 .desc {
-    color: grey;
+    color: #6e5500;
     font-size: 0.8rem;
 }
 
@@ -22,4 +22,11 @@
 
 .del-kof-no {
     color: #c91515;
+}
+
+.card-footer {
+    p {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
 }
