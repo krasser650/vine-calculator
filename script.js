@@ -27,7 +27,8 @@ function calcAlcohol() {
     let alcoholBlend = Number(document.getElementById('alcohol-blend_id').value);
     let total = document.getElementById('total_id');
 
-    if (sugarVine > 0 && amountVine > 0 && alcoholBlend > 0 && sugar > 0 && alcohol > 0 && total) {
+    if (sugarVine > 0 && amountVine > 0 && alcoholBlend > 0 && sugar > 0 && alcohol > 0
+        && (sugarVine > sugar) && (alcoholBlend > alcohol)  && total) {
         const result = ((alcohol - ((sugarVine - sugar) * 0.56)) / (alcoholBlend - alcohol)) * amountVine;
         if (result > 0) {
             total.textContent = 'Кількість спирту : ' + result.toFixed(3) + ' л.';
