@@ -31,9 +31,9 @@ function calcAlcohol() {
         && (sugarVine > sugar) && (alcoholBlend > alcohol)  && total) {
         const result = ((alcohol - ((sugarVine - sugar) * 0.56)) / (alcoholBlend - alcohol)) * amountVine;
         if (result > 0) {
-            total.textContent = 'Кількість спирту : ' + result.toFixed(3) + ' л.';
+            total.textContent = 'Об\'єм спирту : ' + result.toFixed(3) + ' л.';
         } else {
-            total.textContent = 'Кількість спирту : не розраховано';
+            total.textContent = 'Об\'єм спирту : не розраховано';
         }
         let alert = document.getElementById('alert_id');
         if (alert) {
@@ -55,7 +55,7 @@ function resetAll() {
     let total = document.getElementById('total_id');
     let result = document.getElementById('result_id');
     if (total && result) {
-        total.textContent = 'Кількість спирту : не розраховано';
+        total.textContent = 'Об\'єм спирту : не розраховано';
         result.textContent = 'Коєфіціент : не розраховано';
         total.style.color = "black";
         result.style.color = "black";
@@ -86,6 +86,6 @@ function addAlertPlaceholder(message, type) {
 function resetResult() {
     let total = document.getElementById('total_id');
     if (total) {
-        total.textContent = 'Кількість спирту : не розраховано';
+        total.textContent = 'Об\'єм спирту : не розраховано';
     }
 }
