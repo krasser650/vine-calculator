@@ -1,4 +1,5 @@
 function calcDellCof() {
+    resetResult();
     let sugar = Number(document.getElementById('sugar_id').value);
     let alcohol = Number(document.getElementById('alcohol_id').value);
     let result = document.getElementById('result_id');
@@ -41,7 +42,6 @@ function calcAlcohol() {
         const message = 'Деякі поля містять помилки. Перевірте значення та спробуйте знову!';
         const type = 'danger';
         addAlertPlaceholder(message, type);
-        // alert("Деякі поля мають неправильні дані. Перевірте значення та спробуйте знову");
     }
 }
 
@@ -79,5 +79,12 @@ function addAlertPlaceholder(message, type) {
         '</div>'
     ].join('')
 
-    alertPlaceholder.append(wrapper)
+    alertPlaceholder.append(wrapper);
+}
+
+function resetResult() {
+    let total = document.getElementById('total_id');
+    if (total) {
+        total.textContent = 'Кількість спирту : не розраховано';
+    }
 }
