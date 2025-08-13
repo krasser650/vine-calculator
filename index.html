@@ -23,14 +23,14 @@
                     необхідну для консервації вина та запобігання розвитку небажаної мікрофлори.
                     Коефіцієнт Делле повинен бути <strong>80 або більше</strong></p>
                 <div class="mb-3">
-                    <label for="sugar_id" class="form-label">Цукор, % мас.</label>
+                    <label for="sugar_id" class="form-label">Цукристість, г/100см3</label>
                     <input type="number" class="form-control" id="sugar_id" value="0" min="0" max="25" step="0.5"
-                           placeholder="Вкажіть бажаний відсоток цукру" oninput="calcDellCof()">
+                           placeholder="Вкажіть бажаний відсоток цукристості" oninput="calcDellCof()">
                 </div>
                 <div class="mb-3">
-                    <label for="alcohol_id" class="form-label">Спирт, % об.</label>
+                    <label for="alcohol_id" class="form-label">Спиртуозність, об. %</label>
                     <input type="number" class="form-control" id="alcohol_id" value="0" min="0" max="25" step="0.5"
-                           placeholder="Вкажіть бажаний відсоток спирту" oninput="calcDellCof()">
+                           placeholder="Вкажіть бажаний відсоток спиртуозності" oninput="calcDellCof()">
                 </div>
             </div>
             <div class="card-footer">
@@ -40,27 +40,27 @@
         <div class="card">
             <h6 class="card-header">Крок № 2 : Розрахунок спиртової компоненти</h6>
             <div class="card-body">
-                <p class="desc">Додайте показники цукристості виноматеріалу, його кількість та міцність алкоголю,
-                    яким плануєте стабілізувати вино</p>
+                <p class="desc">Додайте показники цукристості виноматеріалу, його кількість та спиртуозність
+                    спиртовмісного матеріалу, яким плануєте стабілізувати вино</p>
                 <div class="mb-3">
-                    <label for="sugar-vine_id" class="form-label">Цукор у виноматеріалі, гр/100мл.</label>
+                    <label for="sugar-vine_id" class="form-label">Цукристість виноматеріалу, гр/100см3.</label>
                     <input type="number" class="form-control" id="sugar-vine_id" value="0" min="15" max="35" step="0.5"
-                           placeholder="Фактичне значення цукру у виноматеріалі" oninput="resetResult()">
+                           placeholder="Фактична цукристості виноматеріалу" oninput="resetResult()">
                 </div>
                 <div class="mb-3">
-                    <label for="amount-wine_id" class="form-label">Кількість виноматеріалу, л</label>
+                    <label for="amount-wine_id" class="form-label">Об'єм виноматеріалу, л</label>
                     <input type="number" class="form-control" id="amount-wine_id" value="0" min="1" max="500" step="5"
-                           placeholder="Фактична кількість виноматеріалу" oninput="resetResult()">
+                           placeholder="Фактичний об'єм виноматеріалу" oninput="resetResult()">
                 </div>
                 <div class="mb-3">
-                    <label for="alcohol-blend_id" class="form-label">Міцність спирту, % об.</label>
-                    <input type="number" class="form-control" id="alcohol-blend_id" value="0" min="40" max="100"
-                           step="0.5" placeholder="Фактична міцність спирту" oninput="resetResult()">
+                    <label for="alcohol-blend_id" class="form-label">Спиртуозність спиртовмісного матеріалу, об. %</label>
+                    <input type="number" class="form-control" id="alcohol-blend_id" value="0" min="50" max="100"
+                           step="0.5" placeholder="Фактична спиртуозність спиртовмісного матеріалу" oninput="resetResult()">
                 </div>
                 <div id="liveAlertPlaceholder"></div>
             </div>
             <div class="card-footer">
-                <p id="total_id">Кількість спирту : не розраховано</p>
+                <p id="total_id">Об'єм спирту : не розраховано</p>
             </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
