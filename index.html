@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WineCalc</title>
     <link rel="stylesheet" href="style.css">
+<!--    <link rel="stylesheet" href="bootstrap.min.css">-->
     <link rel="shortcut icon" href="icon.ico" type="image/x-ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <body>
 
@@ -55,7 +57,7 @@
                                 включаючи тверді частини, які залишились після пресування.<br>
                                 <strong>Цукристість</strong> - це показник вмісту розчинних твердих речовин у
                                 винограді, в основному у вигляді сахарози, виражений у г/100см<sup>3</sup>.<br>
-                                <strong>Густина</strong> - це відношення маси сусла до його об'єму, виражене у г/л<br>
+                                <strong>Густина</strong> -  це відношення маси сусла до його об'єму, виражене у г/л<br>
                                 <strong>Спиртуозність</strong> - це відсоткове співвідношення спирту
                                 (етилового) до загального об'єму рідини.<br>
                                 <strong>Спиртовмісний матеріал (AM)</strong> – це будь-який матеріал, що містить
@@ -90,7 +92,7 @@
                         <div class="accordion-body">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <p class="desc"><strong>Одиниця вимірювання</strong> для початкових параметрів
+                                    <p class="desc"><strong>Одиниця вимірювання</strong> для параметрів
                                         сусла</p>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="radioDefault"
@@ -121,11 +123,19 @@
                                     </div>
                                     <p class="desc">Спрощена система <strong>не включає в розрахунок</strong>
                                         початкову спиртуозність, температуру, зменшення загального об'єму
-                                        (контракцію) сусла після спиртування, а також зниження спиртуозності вина при його
+                                        (контракцію) сусла після спиртування, а також зниження спиртуозності вина при
+                                        його
                                         зберіганні</p>
                                 </li>
                                 <li class="list-group-item">
-
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                               id="history_id"
+                                               onchange="showAccordionItemHistory()">
+                                        <label class="form-check-label" for="history_id">Історія
+                                            розрахунків</label>
+                                    </div>
+                                    <p class="desc">Можливість збереження та перегляду п'яти останніх розрахунків</p>
                                 </li>
                             </ul>
                         </div>
@@ -159,16 +169,18 @@
                                     Кількість <strong>консервуючих одиниць</strong> (далі CU) за розрахунком
                                     повинна складати<strong> 80 або більше</strong></p>
                                 <div class="mb-3">
-                                    <label for="sugarTarget" class="form-label">Цукристість, г/100см<sup>3</sup></label>
-                                    <input type="number" class="form-control" id="sugarTarget" required value="0"
-                                           min="0" max="35" step="0.5"
-                                           placeholder="Вкажіть бажаний відсоток цукристості" oninput="calcDellCof()">
+                                    <label for="sugarTarget" class="form-label">Цукристість <code>(St)</code> ,
+                                        г/100см<sup>3</sup></label>
+                                    <input type="number" class="form-control" id="sugarTarget" name="sugarTargetName"
+                                           required value="0" min="1" max="35" step="0.1"
+                                           placeholder="Вкажіть бажаний відсоток цукристості" oninput="calculateCU()">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="alcoholTarget" class="form-label">Спиртуозність, об. %</label>
-                                    <input type="number" class="form-control" id="alcoholTarget" required value="0"
-                                           min="0" max="35" step="0.5"
-                                           placeholder="Вкажіть бажаний відсоток спиртуозності" oninput="calcDellCof()">
+                                    <label for="alcoholTarget" class="form-label">Спиртуозність <code>(At)</code>, об. %</label>
+                                    <input type="number" class="form-control" id="alcoholTarget"
+                                           name="alcoholTargetName"
+                                           required value="0" min="1" max="35" step="0.1"
+                                           placeholder="Вкажіть бажаний відсоток спиртуозності" oninput="calculateCU()">
                                 </div>
                                 <div class="cof-dell">
                                     <h5 id="conservationUnit"
@@ -199,36 +211,36 @@
                                             спиртуозність <strong>спиртовмісного матеріалу</strong> (далі AМ)
                                             , яким плануєте проводити стабілізацію</p>
                                         <div class="mb-3">
-                                            <label for="sugar-vine-start_id" class="form-label">Початкова цукристість
-                                                сусла, г/100см<sup>3</sup></label>
-                                            <input type="number" class="form-control" id="sugar-vine-start_id"
-                                                   value="0" min="15" max="35"
-                                                   step="0.5"
-                                                   placeholder="Початкова цукристість"
-                                                   oninput="resetResult()">
+                                            <label for="S0" class="form-label">Початкова цукристість
+                                                сусла <code> (S0)</code>, г/100см<sup>3</sup></label>
+                                            <input type="number" class="form-control" id="S0" name="S0Name"
+                                                   value="0" min="15" max="35" step="0.5"
+                                                   placeholder="Початкова цукристість" oninput="resetResult()">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="amount-wine_id" class="form-label">Початковий об'єм сусла, л</label>
-                                    <input type="number" class="form-control" id="amount-wine_id"
-                                           value="0" min="1" max="500" step="5"
+                                    <label for="V0" class="form-label">Початковий об'єм сусла <code> (V0)</code>,
+                                        л</label>
+                                    <input type="number" class="form-control" id="V0" name="V0Name"
+                                           value="0" min="1" max="500" step="1"
                                            placeholder="Початковий об'єм" oninput="resetResult()">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="alcohol-blend_id" class="form-label">Спиртуозність AM, об. %</label>
-                                    <input type="number" class="form-control" id="alcohol-blend_id"
+                                    <label for="As" class="form-label">Спиртуозність AM <code> (As)</code>, об.
+                                        %</label>
+                                    <input type="number" class="form-control" id="As" name="AsName"
                                            value="0" min="50" max="100"
-                                           step="0.5" placeholder="Спиртуозність спиртовмісного матеріалу"
+                                           step="0.1" placeholder="Спиртуозність спиртовмісного матеріалу"
                                            oninput="resetResult()">
                                 </div>
                                 <div class="mb-3" id="alcoholBlendSugar_id">
-                                    <label for="alcohol-blend-sugar_id" class="form-label">Цукристість AM,
+                                    <label for="Ss" class="form-label">Цукристість AM, <code> (Ss)</code>
                                         г/100см<sup>3</sup></label>
-                                    <input type="number" class="form-control" id="alcohol-blend-sugar_id"
-                                           value="0" min="0" max="30"
+                                    <input type="number" class="form-control" id="Ss" name="SsName"
+                                           value="0" min="0" max="50"
                                            step="0.5" placeholder="Цукристість спиртовмісного матеріалу"
                                            oninput="resetResult()">
                                 </div>
@@ -243,7 +255,7 @@
                                     data-bs-target="#flush-collapseFour"
                                     aria-expanded="false"
                                     aria-controls="flush-collapseFour">
-                                <strong>КРОК № 3</strong> : Результат розрахунку
+                                <strong>КРОК № 3</strong> : Результат
                             </button>
                         </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionId">
@@ -252,16 +264,50 @@
                                     у початкові дані, а також у параметри, яких необхідно досягти.
                                 </p>
                                 <div id="resultBox" class="alert alert-secondary">Заповніть кроки 1 та 2</div>
-                                <div id="liveAlertPlaceholder"></div>
                             </div>
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button class="btn btn-secondary" type="button" onclick="resetAll()">Скинути</button>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-center m-b-10">
+                                <button class="btn btn-outline-secondary" type="button" onclick="resetAll()">
+                                    <i class="bi bi-reply-fill"></i> Скинути
+                                </button>
+                                <button class="btn btn-outline-primary" type="button" onclick="calcResult()">
+                                     Перерахувати
+                                </button>
+                                <button id="saveCalcBtn" class="btn btn-outline-success d-none" type="button">
+                                    <i class="bi bi-floppy2-fill"></i> Зберегти
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item d-none" id="history-item_id">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSix"
+                                    aria-expanded="false"
+                                    aria-controls="flush-collapseSix">
+                                <strong>ІСТОРІЯ</strong>&nbsp;розрахунків
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionId">
+                            <div class="accordion-body">
+                                <!-- История -->
+                                <div id="historyBox"></div>
+<!--                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">-->
+<!--                                    <button id="clearHistoryBtn" class="btn btn-outline-danger btn-sm">-->
+<!--                                        <i class="bi bi-trash"></i> Видалити всі записи-->
+<!--                                    </button>-->
+<!--                                </div>-->
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Toast container -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
     </form>
 </div>
 
@@ -270,5 +316,6 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 <script src="script.js"></script>
+<!--<script src="bootstrap.bundle.min.js"></script>-->
 </body>
 </html>
