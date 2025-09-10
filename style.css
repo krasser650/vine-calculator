@@ -7,13 +7,13 @@
     font-size: 0.95rem;
 }
 
-.terminology{
+.terminology {
     font-size: 0.95rem;
 }
 
 .card {
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .title {
@@ -39,18 +39,35 @@
     font-weight: bold;
 }
 
-.cof-dell{
-    /*background: rgba(243, 225, 134, 0.67);*/
+.cof-dell {
     font-weight: bold;
     font-size: 1.1rem;
     padding: 10px 0 5px;
     border-radius: 7px;
     text-align: center;
 }
-.m-b-10{
+
+.date{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    small{
+        color: gray;
+    }
+}
+
+.table-row {
+    white-space: nowrap
+}
+
+.m-b-10 {
     margin-bottom: 10px;
 }
 
-.m-b-5{
-    margin-bottom: 10px;
+.m-b-5 {
+    margin-bottom: 5px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
 }
