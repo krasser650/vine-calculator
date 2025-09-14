@@ -590,8 +590,8 @@
                                                                 aria-label="еnd of range"
                                                                 onchange="genSugarTable()">
                                                             <option value="1100">1100</option>
-                                                            <option value="1110" selected>1110</option>
-                                                            <option value="1120">1120</option>
+                                                            <option value="1110">1110</option>
+                                                            <option value="1120" selected>1120</option>
                                                             <option value="1130">1130</option>
                                                             <option value="1140">1140</option>
                                                             <option value="1150">1150</option>
@@ -603,9 +603,8 @@
                                                     <label for="D0_tSugar" class="form-label">Початкова густина сусла
                                                         <code>
                                                             (D0)</code>, г/л</label>
-                                                    <input type="number" class="form-control" id="D0_tSugar"
-                                                           value="0" min="1030" max="1150" step="5"
-                                                           placeholder="Вкажіть густину сусла"
+                                                    <input type="text" class="form-control int-only" id="D0_tSugar"
+                                                           value="0" placeholder="Вкажіть густину сусла"
                                                            oninput="genSugarTable()">
                                                 </div>
 
@@ -698,18 +697,16 @@
                                                 <label for="D_start" class="form-label">Початкова густина сусла
                                                     <code>
                                                         (D0)</code>, г/л</label>
-                                                <input type="number" class="form-control int-only" id="D_start"
-                                                       value="0" min="1020" max="1150" step="5"
-                                                       placeholder="Вкажіть початкову густину"
+                                                <input type="text" class="form-control int-only" id="D_start"
+                                                       value="0" placeholder="Вкажіть початкову густину"
                                                        oninput="genSpiritTable()">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="D_moment" class="form-label">Цільова густина сусла
                                                     <code>
                                                         (Dt)</code>, г/л</label>
-                                                <input type="number" class="form-control" id="D_moment"
-                                                       value="0" min="999" max="1150" step="5"
-                                                       placeholder="Вкажіть цільову густину"
+                                                <input type="text" class="form-control int-only" id="D_moment"
+                                                       value="0" placeholder="Вкажіть цільову густину"
                                                        oninput="genSpiritTable()">
                                             </div>
                                             <div class="mb-3">
