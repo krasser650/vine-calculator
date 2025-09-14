@@ -111,10 +111,10 @@
     display: none;
 }
 .alert-box{
-    background: rgba(255, 199, 199, 0.91);
+    background: #f6e9b6;
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ffa4a4;
+    border: 1px solid #ffdb90;
     border-radius: 5px;
     color: #410303;
 }
