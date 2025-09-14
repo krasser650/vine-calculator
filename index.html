@@ -11,7 +11,754 @@
 </head>
 <body>
 
+<div class="container"><!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WineCalc</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.ico" type="image/x-ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+
 <div class="container">
+    <div class="content">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-calculator" viewBox="0 0 16 16">
+                        <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                        <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    Розрахунки
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-table" viewBox="0 0 16 16">
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/>
+                    </svg>
+                    Таблиці
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content p-20-0">
+            <div class="tab-pane fade show active" id="tab1">
+                <div class="card">
+                    <div class="card-header text-bg-secondary">Калькулятори</div>
+                    <div class="card-body">
+                        <p class="desc">Калькулятори розділені за функціоналом використання.
+                            Кожен виконує розрахунок для конкретної операції.
+                        </p>
+                        <div class="accordion accordion-flush" id="accordionCalcMain">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#calcDell"
+                                            aria-expanded="false"
+                                            aria-controls="calcDell">
+                                        Розрахунок об'єму спиртовмісного матеріалу та моменту його внесення
+                                    </button>
+                                </h2>
+                                <div id="calcDell" class="accordion-collapse collapse"
+                                     data-bs-parent="#accordionCalcMain">
+                                    <div>
+                                        <!-- ==========================SETTINGS===========================================================-->
+                                        <div class="card border-light">
+                                            <div class="card-header mt-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                                                </svg>
+                                                Властивості
+                                            </div>
+                                            <div class="card-body">
+
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch"
+                                                           id="switchCheckChecked2"
+                                                           onchange="expandAccordion()">
+                                                    <label class="form-check-label" for="switchCheckChecked2">Розгорнути
+                                                        всі
+                                                        вкладинки </label>
+                                                </div>
+
+                                                <p class="desc">Калькулятор займає <strong>більше місця на
+                                                    экрані</strong> але дає змогу
+                                                    контролювати весь процес розрахунків</p>
+
+                                                <div class="accordion accordion-flush" id="accordionFlushTerminology">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button collapsed"
+                                                                    type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#flush-collapseTerminology"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="flush-collapseOne">
+                                                                Терміни, що використовуються у розрахунках
+                                                            </button>
+                                                        </h2>
+                                                        <div id="flush-collapseTerminology"
+                                                             class="accordion-collapse collapse"
+                                                             data-bs-parent="#accordionFlushTerminology">
+                                                            <div>
+                                                                <p class="terminology mt-3">
+                                                                    <strong>Консервуюча одиниця Делле (CU)</strong> - це
+                                                                    число, що показує
+                                                                    рівень
+                                                                    концентрації
+                                                                    спирту та цукру у вині, при якому припиняється
+                                                                    бродіння. Вважається,
+                                                                    що при досягненні 80 одиниць бродіння зупиняється,
+                                                                    що робить вино
+                                                                    стабільним і менш схильним до повторного
+                                                                    бродіння.<br>
+                                                                    <strong>Виноградне сусло</strong> - це
+                                                                    свіжовичавлений сік з винограду,
+                                                                    включаючи тверді частини, які залишились після
+                                                                    пресування.<br>
+                                                                    <strong>Цукристість</strong> - це показник вмісту
+                                                                    розчинних твердих
+                                                                    речовин
+                                                                    у
+                                                                    винограді або суслі, в основному у вигляді сахарози,
+                                                                    виражений
+                                                                    у
+                                                                    г/100см<sup>3</sup>.<br>
+                                                                    <strong>Густина</strong> - це відношення маси сусла
+                                                                    до його об'єму,
+                                                                    виражене
+                                                                    у
+                                                                    г/л<br>
+                                                                    <strong>Спиртуозність</strong> - це відсоткове
+                                                                    співвідношення спирту
+                                                                    (етилового) до загального об'єму рідини.<br>
+                                                                    <strong>Спиртовмісний матеріал (AM)</strong> – це
+                                                                    будь-який матеріал, що
+                                                                    містить
+                                                                    етиловий спирт, отриманий з харчової сировини, у
+                                                                    кількості, що перевищує
+                                                                    0,5%
+                                                                    від
+                                                                    загального обсягу готової продукції.<br>
+                                                                    <strong>Спиртуозність спиртовмісного
+                                                                        матеріалу</strong> - це
+                                                                    концентрація
+                                                                    етилового
+                                                                    спирту в цьому матеріалі, виражена у відсотках за
+                                                                    обсягом. Іншими
+                                                                    словами,
+                                                                    це показник того, скільки етилового спирту міститься
+                                                                    в даному обсязі
+                                                                    рідини.<br>
+                                                                    <strong>Спиртування</strong> - це процес додавання
+                                                                    спирту або
+                                                                    спиртовмісного
+                                                                    матеріалу до вина або виноградного сусла. Це
+                                                                    робиться для зупинки
+                                                                    бродіння
+                                                                    або
+                                                                    для
+                                                                    досягнення певного рівня алкоголю.<br>
+                                                                    <strong>Ареометр</strong> у виноробстві
+                                                                    використовуеться для вимірювання
+                                                                    початкової та кінцевої густини сусла, що дозволяє
+                                                                    відстежувати процес
+                                                                    бродіння
+                                                                    та
+                                                                    прогнозувати кінцеві показники.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header">
+                                                            <button class="accordion-button collapsed"
+                                                                    type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="#flush-collapseFive"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="flush-collapseTwo">
+                                                                Налаштування
+                                                            </button>
+                                                        </h2>
+                                                        <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                                             data-bs-parent="#accordionFlushTerminology">
+                                                            <div class="mt-3">
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">
+                                                                        <p class="desc"><strong>Одиниця
+                                                                            вимірювання</strong> для параметрів
+                                                                            сусла</p>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="radioDefault"
+                                                                                   id="radioDefault2" checked
+                                                                                   onchange="changeMeasurementMethod(true)">
+                                                                            <label class="form-check-label"
+                                                                                   for="radioDefault2">
+                                                                                Цукристість, г/100см<sup>3</sup>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="radio"
+                                                                                   name="radioDefault"
+                                                                                   id="radioDefault1"
+                                                                                   onchange="changeMeasurementMethod(false)">
+                                                                            <label class="form-check-label"
+                                                                                   for="radioDefault1">
+                                                                                Густина, г/л
+                                                                            </label>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="list-group-item">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="switchCheckChecked"
+                                                                                   checked
+                                                                                   disabled
+                                                                                   onchange="changeCalculationSystem()">
+                                                                            <label class="form-check-label"
+                                                                                   for="switchCheckChecked">Спрощена
+                                                                                система
+                                                                                розрахунку</label>
+                                                                        </div>
+                                                                        <p class="desc">Спрощена система <strong>не
+                                                                            включає в
+                                                                            розрахунок</strong>
+                                                                            початкову спиртуозність, температуру,
+                                                                            зменшення загального
+                                                                            об'єму
+                                                                            (контракцію) сусла після спиртування, а
+                                                                            також зниження
+                                                                            спиртуозності
+                                                                            вина при
+                                                                            його
+                                                                            зберіганні</p>
+                                                                    </li>
+                                                                    <li class="list-group-item">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="history_id"
+                                                                                   onchange="showAccordionItemHistory()">
+                                                                            <label class="form-check-label"
+                                                                                   for="history_id">Історія
+                                                                                розрахунків</label>
+                                                                        </div>
+                                                                        <p class="desc">Можливість збереження та
+                                                                            перегляду п'яти останніх
+                                                                            розрахунків</p>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <form class="form" id="calcForm">
+                                            <div class="card border-light">
+                                                <div class="card-header">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                         fill="currentColor" class="bi bi-database-fill"
+                                                         viewBox="0 0 16 16">
+                                                        <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
+                                                        <path d="M2 6.161V7c0 1.007.875 1.755 1.904 2.223C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777C13.125 8.755 14 8.007 14 7v-.839c-.457.432-1.004.751-1.49.972C11.278 7.693 9.682 8 8 8s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+                                                        <path d="M2 9.161V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13s3.022-.289 4.096-.777C13.125 11.755 14 11.007 14 10v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+                                                        <path d="M2 12.161V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13v-.839c-.457.432-1.004.751-1.49.972-1.232.56-2.828.867-4.51.867s-3.278-.307-4.51-.867c-.486-.22-1.033-.54-1.49-.972"/>
+                                                    </svg>
+                                                    Початкові дані та розрахунки
+                                                </div>
+                                                <div class="card-body">
+
+                                                    <!-- ==========================ACCORDION===========================================================-->
+                                                    <div class="accordion accordion-flush" id="accordionId">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header">
+                                                                <button class="accordion-button collapsed"
+                                                                        type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#flush-collapseOne"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="flush-collapseOne">
+                                                                    КРОК № 1 : Правило Делле
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseOne"
+                                                                 class="accordion-collapse collapse"
+                                                                 data-bs-parent="#accordionId">
+                                                                <div class="mt-3">
+                                                                    <p class="desc">Визначте концентрацію цукру та
+                                                                        спирту у майбутньому
+                                                                        вині.
+                                                                        Кількість <strong>консервуючих одиниць</strong>
+                                                                        (далі CU) за
+                                                                        розрахунком
+                                                                        повинна складати<strong> 80 або більше</strong>
+                                                                    </p>
+                                                                    <div class="mb-3">
+                                                                        <label for="sugarTarget" class="form-label">Цукристість
+                                                                            <code>(St)</code> ,
+                                                                            г/100см<sup>3</sup></label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="sugarTarget"
+                                                                               name="sugarTargetName"
+                                                                               required value="0" min="1" max="35"
+                                                                               step="0.1"
+                                                                               placeholder="Вкажіть бажаний відсоток цукристості"
+                                                                               oninput="calculateCU()">
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="alcoholTarget" class="form-label">Спиртуозність
+                                                                            <code>(At)</code>, об. %</label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="alcoholTarget"
+                                                                               name="alcoholTargetName"
+                                                                               required value="0" min="1" max="35"
+                                                                               step="0.1"
+                                                                               placeholder="Вкажіть бажаний відсоток спиртуозності"
+                                                                               oninput="calculateCU()">
+                                                                    </div>
+                                                                    <div class="cof-dell">
+                                                                        <h5 id="conservationUnit"
+                                                                            data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-custom-class="custom-tooltip"
+                                                                            data-bs-title="Має бути 80 або більше"
+                                                                        >Кількість CU : не розраховано</h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header">
+                                                                <button class="accordion-button collapsed"
+                                                                        type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#flush-collapseTwo"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="flush-collapseTwo">
+                                                                    КРОК № 2 : Початкові дані
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseTwo"
+                                                                 class="accordion-collapse collapse"
+                                                                 data-bs-parent="#accordionId">
+                                                                <div class="mt-3">
+                                                                    <div id="wortParameter_id">
+                                                                        <div id="parameter_id">
+                                                                            <p class="desc">Додайте показники
+                                                                                цукристості сусла, його об'єм
+                                                                                та спиртуозність <strong>спиртовмісного
+                                                                                    матеріалу</strong>(далі AМ),
+                                                                                яким плануєте проводити стабілізацію
+                                                                            </p>
+                                                                            <div class="mb-3">
+                                                                                <label for="S0" class="form-label">Початкова
+                                                                                    цукристість
+                                                                                    сусла <code> (S0)</code>,
+                                                                                    г/100см<sup>3</sup></label>
+                                                                                <input type="number"
+                                                                                       class="form-control" id="S0"
+                                                                                       name="S0Name"
+                                                                                       value="0" min="15" max="35"
+                                                                                       step="0.5"
+                                                                                       placeholder="Початкова цукристість"
+                                                                                       oninput="resetResult()">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="V0" class="form-label">Початковий
+                                                                            об'єм сусла <code>
+                                                                                (V0)</code>, л</label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="V0" name="V0Name"
+                                                                               value="0" min="1" max="500" step="1"
+                                                                               placeholder="Початковий об'єм"
+                                                                               oninput="resetResult()">
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="As" class="form-label">Спиртуозність
+                                                                            AM <code>
+                                                                                (As)</code>,
+                                                                            об. %</label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="As" name="AsName"
+                                                                               value="0" min="50" max="100"
+                                                                               step="0.1"
+                                                                               placeholder="Спиртуозність спиртовмісного матеріалу"
+                                                                               oninput="resetResult()">
+                                                                    </div>
+                                                                    <div class="mb-3" id="alcoholBlendSugar_id">
+                                                                        <label for="Ss" class="form-label">Цукристість
+                                                                            AM, <code>
+                                                                                (Ss)</code>
+                                                                            г/100см<sup>3</sup></label>
+                                                                        <input type="number" class="form-control"
+                                                                               id="Ss" name="SsName"
+                                                                               value="0" min="0" max="50"
+                                                                               step="0.5"
+                                                                               placeholder="Цукристість спиртовмісного матеріалу"
+                                                                               oninput="resetResult()">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header">
+                                                                <button class="accordion-button collapsed"
+                                                                        type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#flush-collapseFour"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="flush-collapseFour">
+                                                                    КРОК № 3 : Результат розрахунку
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseFour"
+                                                                 class="accordion-collapse collapse"
+                                                                 data-bs-parent="#accordionId">
+                                                                <div class="mt-3">
+                                                                    <p class="desc">Результат перераховується <strong>автоматично</strong>
+                                                                        при внесенні змін у початкові дані, а також у
+                                                                        параметри, яких
+                                                                        необхідно досягти.
+                                                                    </p>
+                                                                    <div id="resultBox" class="alert alert-secondary">
+                                                                        Заповніть кроки 1 та 2
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-3">
+                                                                    <button class="btn btn-outline-secondary"
+                                                                            type="button"
+                                                                            onclick="resetAll()">
+                                                                        Скинути
+                                                                    </button>
+                                                                    <button class="btn btn-outline-primary"
+                                                                            type="button"
+                                                                            onclick="calcResult()">
+                                                                        Перерахувати
+                                                                    </button>
+                                                                    <button id="saveCalcBtn"
+                                                                            class="btn btn-outline-success d-none"
+                                                                            type="button">
+                                                                        Зберегти
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="accordion-item d-none" id="history-item_id">
+                                                            <h2 class="accordion-header">
+                                                                <button class="accordion-button collapsed"
+                                                                        type="button"
+                                                                        data-bs-toggle="collapse"
+                                                                        data-bs-target="#flush-collapseSix"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="flush-collapseSix">
+                                                                    КРОК № 4 : Історія розрахунків
+                                                                </button>
+                                                            </h2>
+                                                            <div id="flush-collapseSix"
+                                                                 class="accordion-collapse collapse"
+                                                                 data-bs-parent="#accordionId">
+                                                                <div>
+                                                                    <!-- История -->
+                                                                    <div id="historyBox"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Toast container -->
+                                            <div class="toast-container position-fixed bottom-0 end-0 p-3"
+                                                 id="toastContainer"></div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#calcNext"
+                                            aria-expanded="false"
+                                            aria-controls="calcNext">
+                                        Місце зарезервоване під наступний калькулятор :)
+                                    </button>
+                                </h2>
+                                <div id="calcNext" class="accordion-collapse collapse"
+                                     data-bs-parent="#accordionCalcMain">
+                                    <div class="title m-t-20">
+                                        <p>2 x 2 = ?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tab-pane fade show" id="tab2">
+                <form class="form" id="tableForm">
+                    <div class="card">
+                        <div class="card-header text-bg-secondary">Інтерактивні таблиці</div>
+                        <div class="card-body">
+                            <p class="desc">Швидкий пошук розрахункових значень <b>цукристості,
+                                спиртуозності та незброджених цукрів</b> у виноградному суслі.
+                            </p>
+
+                            <div class="accordion accordion-flush" id="accordion2Id">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseTabOne"
+                                                aria-expanded="false"
+                                                aria-controls="flush-collapseTabOne">
+                                            Таблиця №1 - Визначення початкової цукристості сусла
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTabOne" class="accordion-collapse collapse"
+                                         data-bs-parent="#accordion2Id">
+                                        <div class="mt-3">
+
+                                            <p class="d-inline-flex">
+                                                <button class="btn btn-outline-secondary btn-sm" type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#description_t1"
+                                                        aria-expanded="false"
+                                                        aria-controls="description">
+                                                    Опис методу
+                                                </button>
+                                            </p>
+
+                                            <div class="collapse" id="description_t1">
+                                                <div class="card card-body mb-3">
+                                                    <p class="desc"><b>Метод заснований на пропорційній залежності
+                                                        густини сусла від
+                                                        вмісту в ньому твердих речовин(в тому числі цукрів)</b></p>
+                                                    <p><b>Прилади та матеріали</b><br>Аєрометри, градуйовані від 1,000
+                                                        до 1,080 та від 1,080 до 1,160, циліндр об'ємом 250
+                                                        см<sup>3</sup>, термометр зі шкалою від 0 до 50 з ціною
+                                                        поділки 0,2 °С.
+                                                    </p>
+                                                    <p><b>Техніка визначення</b><br>У циліндр, попередньо
+                                                        промитий суслом, наливають близько 200 см<sup>3</sup> сусла і
+                                                        встановлюють його на горизонтальній поверхні.
+                                                        Вимірюють температуру сусла і опускають в нього ареометр таким
+                                                        чином, щоб нижня його частина після
+                                                        занурення знаходилася на відстані не менше 1 см від дна
+                                                        циліндра, а сам він не торкався стінок циліндра. Відлік показань
+                                                        знімають по верхньому меніску для забарвленого сусла і по
+                                                        нижньому -
+                                                        для білого.</p>
+                                                    <p><b>Зверніть увагу</b><br>Якщо температура сусла не дорівнює 20°С, то в
+                                                        покази аєрометра вносити поправку не потрібно, заповніть
+                                                        відповідне поле і таблиця виконає перерахунок автоматично.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <p class="desc ta-c"><b>Межі діапазону густин</b></p>
+                                            <div class="mb-3">
+                                                <div class="select-group gap-2 mb-3">
+                                                    <div class="select-group-item">
+                                                        <label for="startRange" class="form-label">Нижня,
+                                                            г/л</label>
+                                                        <select class="form-select" id="startRange"
+                                                                aria-label="start of range"
+                                                                onchange="genSugarTable()">
+                                                            <option value="1020">1020</option>
+                                                            <option value="1030">1030</option>
+                                                            <option value="1040">1040</option>
+                                                            <option value="1050">1050</option>
+                                                            <option value="1060" selected>1060</option>
+                                                            <option value="1070">1070</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="select-group-item">
+                                                        <label for="endRange" class="form-label">Верхня, г/л</label>
+                                                        <select class="form-select" id="endRange"
+                                                                aria-label="еnd of range"
+                                                                onchange="genSugarTable()">
+                                                            <option value="1100">1100</option>
+                                                            <option value="1110" selected>1110</option>
+                                                            <option value="1120">1120</option>
+                                                            <option value="1130">1130</option>
+                                                            <option value="1140">1140</option>
+                                                            <option value="1150">1150</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="D0_tSugar" class="form-label">Початкова густина сусла
+                                                        <code>
+                                                            (D0)</code>, г/л</label>
+                                                    <input type="number" class="form-control" id="D0_tSugar"
+                                                           value="0" min="1030" max="1150" step="5"
+                                                           placeholder="Вкажіть густину сусла"
+                                                           oninput="genSugarTable()">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="t0_tSugar" class="form-label">Температура сусла
+                                                        <code>
+                                                            (t0)</code>, °С</label>
+                                                    <select class="form-select" id="t0_tSugar"
+                                                            aria-label="temperature"
+                                                            onchange="genSugarTable()">
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20" selected>20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="step_sugarTable" class="form-label">Крок розрахунку
+                                                        <code>
+                                                            (step)</code></label>
+                                                    <select class="form-select" id="step_sugarTable"
+                                                            aria-label="step of range" onchange="genSugarTable()">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="5" selected>5</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="alert-box none-d" id="alertSugarBox"></div>
+                                            <div class="table-container" id="tabSugar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseTabTwo"
+                                                aria-expanded="false"
+                                                aria-controls="flush-collapseTabTwo">
+                                            Таблиця №2 - Контроль бродіння сусла
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTabTwo" class="accordion-collapse collapse"
+                                         data-bs-parent="#accordion2Id">
+                                        <div class="mt-3">
+                                            <p class="d-inline-flex">
+                                                <button class="btn btn-outline-secondary btn-sm" type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#description_t2" aria-expanded="false"
+                                                        aria-controls="description">
+                                                    Опис методу
+                                                </button>
+                                            </p>
+
+                                            <div class="collapse" id="description_t2">
+                                                <div class="card card-body mb-3">
+                                                    <p class="desc"><b>Метод заснований на визначенні відносної густини
+                                                        сусла до та під час бродіння.</b></p>
+                                                    <p>Метод і техніка визначення густини описані в
+                                                        <a href="#" onclick="scrollToTab1()">таблиці №1</a>
+                                                    </p>
+                                                    <p>Оскільки в процесі зброджування вуглеводів утворюється спирт,
+                                                        то густина бродячого сусла зменшується. Вимірюючи її та
+                                                        порівнюючи з густиною сусла до бродіння, визначають кількість
+                                                        утвореного спирту і незброджених цукрів.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="D_start" class="form-label">Початкова густина сусла
+                                                    <code>
+                                                        (D0)</code>, г/л</label>
+                                                <input type="number" class="form-control int-only" id="D_start"
+                                                       value="0" min="1020" max="1150" step="5"
+                                                       placeholder="Вкажіть початкову густину"
+                                                       oninput="genSpiritTable()">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="D_moment" class="form-label">Цільова густина сусла
+                                                    <code>
+                                                        (Dt)</code>, г/л</label>
+                                                <input type="number" class="form-control" id="D_moment"
+                                                       value="0" min="999" max="1150" step="5"
+                                                       placeholder="Вкажіть цільову густину"
+                                                       oninput="genSpiritTable()">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="step_spiritTable" class="form-label">Крок розрахунку
+                                                    <code>(step)</code></label>
+                                                <select class="form-select" id="step_spiritTable"
+                                                        aria-label="step of range" onchange="genSpiritTable()">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="5" selected>5</option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                            </div>
+                                            <div id="resultContainer"></div>
+                                            <div class="table-container" id="tabSpirit"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+<script src="script.js"></script>
+<script src="tabScript.js"></script>
+
+</body>
+</html>
+
     <div class="content">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
