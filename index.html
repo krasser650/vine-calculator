@@ -280,7 +280,7 @@
                                                                         data-bs-target="#flush-collapseOne"
                                                                         aria-expanded="false"
                                                                         aria-controls="flush-collapseOne">
-                                                                    КРОК № 1 : Правило Делле
+                                                                    КРОК № 1 - Правило Делле
                                                                 </button>
                                                             </h2>
                                                             <div id="flush-collapseOne"
@@ -337,7 +337,7 @@
                                                                         data-bs-target="#flush-collapseTwo"
                                                                         aria-expanded="false"
                                                                         aria-controls="flush-collapseTwo">
-                                                                    КРОК № 2 : Початкові дані
+                                                                    КРОК № 2 - Початкові дані
                                                                 </button>
                                                             </h2>
                                                             <div id="flush-collapseTwo"
@@ -414,7 +414,7 @@
                                                                         data-bs-target="#flush-collapseFour"
                                                                         aria-expanded="false"
                                                                         aria-controls="flush-collapseFour">
-                                                                    КРОК № 3 : Результат розрахунку
+                                                                    КРОК № 3 - Результат розрахунку
                                                                 </button>
                                                             </h2>
                                                             <div id="flush-collapseFour"
@@ -457,7 +457,7 @@
                                                                         data-bs-target="#flush-collapseSix"
                                                                         aria-expanded="false"
                                                                         aria-controls="flush-collapseSix">
-                                                                    КРОК № 4 : Історія розрахунків
+                                                                    КРОК № 4 - Історія розрахунків
                                                                 </button>
                                                             </h2>
                                                             <div id="flush-collapseSix"
@@ -489,13 +489,45 @@
                                             data-bs-target="#calcNext"
                                             aria-expanded="false"
                                             aria-controls="calcNext">
-                                        Місце зарезервоване під наступний калькулятор :)
+                                        Розрахунок компонентів купажу
                                     </button>
                                 </h2>
                                 <div id="calcNext" class="accordion-collapse collapse"
                                      data-bs-parent="#accordionCalcMain">
                                     <div class="title m-t-20">
-                                        <p>2 x 2 = ?</p>
+                                        <h5 class="desc">На даний момент не реалізовано</h5>
+
+                                        <p class="d-inline-flex gap-1">
+                                            <a class="btn btn-outline-secondary" data-bs-toggle="collapse"
+                                               href="#multiCollapseExample1" role="button" aria-expanded="false"
+                                               aria-controls="multiCollapseExample1">
+                                                Розрахунки купажів, що враховують один показник складу</a>
+                                            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#multiCollapseExample2" aria-expanded="false"
+                                                    aria-controls="multiCollapseExample2">Розрахунки купажів,
+                                                які враховують два показники складу</button>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                                    <div class="card card-body text-start">
+                                                        Купажів, що враховують якийсь один показник складу
+                                                        (вміст спирту, цукру або кислот), відносять до найпростішого
+                                                        випадку.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="collapse multi-collapse" id="multiCollapseExample2">
+                                                    <div class="card card-body text-start">
+                                                        Даний випадок є основним, оскільки в практиці виноробства
+                                                        найчастіше доводиться мати справу з розрахунками купажів,
+                                                        в яких враховують одночасно два показники складу, наприклад,
+                                                        спирт і цукор.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -603,8 +635,8 @@
                                                     <label for="D0_tSugar" class="form-label">Початкова густина сусла
                                                         <code>
                                                             (D0)</code>, г/л</label>
-                                                    <input type="text" class="form-control int-only" id="D0_tSugar"
-                                                           value="0" placeholder="Вкажіть густину сусла"
+                                                    <input type="text" class="form-control int-only" inputmode="decimal"
+                                                           id="D0_tSugar" value="0" placeholder="Вкажіть густину сусла"
                                                            oninput="genSugarTable()">
                                                 </div>
 
@@ -697,16 +729,16 @@
                                                 <label for="D_start" class="form-label">Початкова густина сусла
                                                     <code>
                                                         (D0)</code>, г/л</label>
-                                                <input type="text" class="form-control int-only" id="D_start"
-                                                       value="0" placeholder="Вкажіть початкову густину"
+                                                <input type="text" class="form-control int-only" inputmode="decimal"
+                                                       id="D_start" value="0" placeholder="Вкажіть початкову густину"
                                                        oninput="genSpiritTable()">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="D_moment" class="form-label">Цільова густина сусла
                                                     <code>
                                                         (Dt)</code>, г/л</label>
-                                                <input type="text" class="form-control int-only" id="D_moment"
-                                                       value="0" placeholder="Вкажіть цільову густину"
+                                                <input type="text" class="form-control int-only" inputmode="decimal"
+                                                       id="D_moment" value="0" placeholder="Вкажіть цільову густину"
                                                        oninput="genSpiritTable()">
                                             </div>
                                             <div class="mb-3">
