@@ -6,7 +6,7 @@
 
 .content {
     margin: 0 auto;
-    padding: 10px;
+    /*padding: 10px;*/
     max-width: 800px;
 }
 
@@ -46,10 +46,24 @@
     font-weight: bold;
 }
 
+.card-custom {
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+}
+
+.input-group {
+    display: flex;
+}
+
 .select-group {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.select-group-inline {
+    display: flex;
+    flex-direction: row;
 }
 
 .select-group-item {
@@ -60,7 +74,6 @@
     font-weight: bold;
     font-size: 1.1rem;
     padding: 10px 0 5px;
-    border-radius: 7px;
     text-align: center;
 }
 
@@ -77,6 +90,11 @@
 
 .table-row {
     white-space: nowrap
+}
+
+.table-sticky-thead {
+    position: sticky;
+    top: 0
 }
 
 .m-b-10 {
@@ -103,18 +121,56 @@
     padding: 20px 0;
 }
 
+.p-0-10 {
+    padding: 0 10px;
+}
+
+.p-0-15 {
+    padding: 0 15px;
+}
+
 .ta-c {
     text-align: center;
+}
+
+.ta-l {
+    text-align: left;
+}
+
+.ta-r {
+    text-align: right;
 }
 
 .none-d {
     display: none;
 }
-.alert-box{
+
+.alert-box {
     background: #f6e9b6;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ffdb90;
     border-radius: 5px;
     color: #410303;
+}
+
+.result {
+    border: 1px solid #97a3c5;
+    border-radius: 5px;
+    margin: 5px 5px 5px 0;
+    padding: 7px;
+}
+
+.result2 {
+    background: #f3f8ff;
+}
+
+hr.separator {
+    border: none; /* Убираем стандартное оформление */
+    /*background-color: navy;*/
+    border-top: 1px dashed black;
+}
+
+.form-check-input {
+    margin-left: 0px;
 }
