@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сторінку не знайдено</title>
+
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 60px; }
-    a.button { display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      box-sizing: border-box;
+	  background: #fafafa;
+    }
+
+    .container {
+      max-width: 750px;
+      width: 100%;
+    }
+
+    .code {
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
   </style>
 </head>
-<body>
-<div style = "max-width: 750px; margin: 0 auto">
-  <p style="font-size: 6rem; font-family: bold; margin: 0">404</p>
-  <h2>Сторінку не знайдено</h2>
-  <p>Можливо ви помилилися адресою, але це легко виправити</p>
-  <p>Натискайте на блакитну кнопку, та повертайтеся до нас</p>
-  <a class="button" href="/vine-calculator/">На головну</a>
-</div>
-</body>
 
+<body>
+  <div class="container">
+    <p class="code">404</p>
+    <h2>Сторінку не знайдено</h2>
+    <p>Можливо ви помилилися адресою, але це легко виправити</p>
+    <p>Натискайте на блакитну кнопку та повертайтеся до нас</p>
+    <a class="button" href="/vine-calculator/">На головну</a>
+  </div>
+</body>
 </html>
+
 
